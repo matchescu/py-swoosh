@@ -34,7 +34,7 @@ jobs:
     - name: Test Reporter
       uses: dorny/test-reporter@v1.6.0
       with:
-        # Name or regex of artifact containing test results
+        name: unit-tests
         path: test_results.xml
         reporter: java-junit
     - name: Pytest Coverage Comment
