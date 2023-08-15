@@ -30,4 +30,14 @@ jobs:
         poetry install
     - name: Run unit tests
       run: |
-        poetry run pytest
+        poetry run pytest --cov=src --cov-report=xml:coverage.xml --junitxml=test_results.xml
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.6.0
+      with:
+        # Name or regex of artifact containing test results
+        path: test_results.xml
+        reporter: java-junit
+    - name: Pytest Coverage Comment
+      uses: MishaKav/pytest-coverage-comment@v1.1.48
+      with:
+        pytest-xml-coverage-path: coverage.xml
