@@ -12,7 +12,6 @@ on:
 permissions:
   contents: read
   checks: write
-  pull-requests: write
 
 jobs:
   build:
@@ -39,7 +38,3 @@ jobs:
         name: unit-tests
         path: test_results.xml
         reporter: java-junit
-    - name: Pytest Coverage Comment
-      uses: MishaKav/pytest-coverage-comment@v1.1.48
-      with:
-        pytest-xml-coverage-path: coverage.xml
