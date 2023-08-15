@@ -12,6 +12,8 @@ on:
 permissions:
   contents: read
   checks: write
+  discussions: write
+  statuses: write
 
 jobs:
   build:
